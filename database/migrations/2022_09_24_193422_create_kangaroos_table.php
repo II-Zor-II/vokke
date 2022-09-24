@@ -20,8 +20,8 @@ class CreateKangaroosTable extends Migration
             $table->foreign('user_id')->references('id')
                 ->on('users');
             $table->string('name', 255);
-            $table->decimal('weight', 8, 2);
-            $table->decimal('height', 8, 2);
+            $table->integer('weight'); // grams
+            $table->integer('height'); // millimeters
             $table->string('nickname', 255);
             $table->enum('gender', Kangaroo::GENDER);
             $table->string('color', 10)->nullable();
