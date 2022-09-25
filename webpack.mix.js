@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+require('mix-tailwindcss');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -10,6 +12,17 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .tailwind();
+
+mix.browserSync({
+    watch: true,
+    proxy: 'vokke.test',
+    open: false,
+    files: [
+        'resources/js/home/*.js',
+        'resources/js/app.js',
+        'resources/sass/app.scss'
+    ],
+});

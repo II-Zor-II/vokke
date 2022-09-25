@@ -62,8 +62,12 @@
                 margin-bottom: 30px;
             }
         </style>
+        <!-- DevExtreme theme -->
+        <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.1.5/css/dx.light.css">
+
+        <script src="{{ mix('/js/app.js') }}"></script>
     </head>
-    <body>
+    <body class="dx-viewport">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -80,7 +84,10 @@
             @endif
 
             <div class="content">
-                <h1>Add Kangaroo List here ...</h1>
+                <h1 id="header">Kangaroos</h1>
+                <div class="kangaroo-list-container">
+                    <div id="kangaroo-grid"></div>
+                </div>
             </div>
         </div>
     </body>

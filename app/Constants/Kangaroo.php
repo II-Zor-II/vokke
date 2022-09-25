@@ -4,8 +4,8 @@ namespace App\Constants;
 
 final class Kangaroo {
     const FRIENDLINESS = [
-        'easy',
-        'hard'
+        'friendly',
+        'not friendly'
     ];
 
     const GENDER = [
