@@ -16,7 +16,7 @@ class UpdateKangaroo extends FormRequest
     {
         return [
             'birth_date' => 'date|date_format:Y-m-d',
-            'name' => 'unique:kangaroos|max:255',
+            'name' => 'max:255',
             'nickname' => 'max:255',
             'color' =>'max:10',
             'gender' =>'in:male,female',

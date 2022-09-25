@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\User as UserResource;
-use Illuminate\Support\Facades\Auth;
 
 class Kangaroo extends JsonResource
 {
@@ -23,10 +22,10 @@ class Kangaroo extends JsonResource
             'name' => $this->name,
             'nickname' => $this->nickname,
             'color' => $this->color,
-            'gender' => $this->gender,
-            'friendliness' => $this->friendliness,
-            'weight' => $this->weight,
-            'height' => $this->height,
+            'gender' => ucfirst($this->gender),
+            'friendliness' => ucfirst($this->friendliness),
+            'weight' => round($this->weight,2),
+            'height' => round($this->height, 2),
         ];
     }
 }

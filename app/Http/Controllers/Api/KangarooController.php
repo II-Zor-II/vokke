@@ -7,7 +7,6 @@ use App\Http\Requests\UpdateKangaroo;
 use App\Models\Kangaroo;
 use App\Http\Resources\Kangaroo as KangarooResource;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Request;
 
 class KangarooController extends ApiController
 {
