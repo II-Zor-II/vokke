@@ -9,7 +9,20 @@ class Kangaroo extends Model
 {
     use Timestamp;
 
-    public function user() {
+    protected $fillable = [
+        'user_id',
+        'birth_date',
+        'name',
+        'nickname',
+        'color',
+        'gender',
+        'friendliness',
+        'weight',
+        'height',
+    ];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

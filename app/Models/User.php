@@ -36,7 +36,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function kangaroos() {
+    public function kangaroos()
+    {
         return $this->hasMany(Kangaroo::class);
     }
 }

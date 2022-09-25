@@ -11,6 +11,7 @@ try {
     window.$ = window.jQuery = require('jquery');
     require('./_lib/dx.all.debug')
     require('bootstrap');
+    require('tw-elements');
 } catch (e) {}
 
 /**

@@ -9,12 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Compiled and minified CSS -->
-{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--}}
-
-    <!-- Compiled and minified JavaScript -->
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--}}
-
     <!-- DevExtreme theme -->
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.1.5/css/dx.light.css">
 

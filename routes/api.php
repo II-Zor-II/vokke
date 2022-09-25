@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'Api'],function() {
+Route::group(['namespace' => 'Api', 'middleware' => ['auth:api']],function() {
     Route::resource('kangaroo', 'KangarooController');
 });
 
+Route::resource('kangaroo', 'Api\KangarooController', ['only' => 'index']);

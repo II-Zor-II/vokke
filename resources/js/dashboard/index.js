@@ -25,7 +25,7 @@ $(() => {
             onSelectionChanged(selectedItems) {
                 const data = selectedItems.selectedRowsData[0];
                 if(data){
-                    console.log('selected a row');
+                    console.log('selected row');
                     console.log('edit this row...');
                     console.log(data);
                 }
