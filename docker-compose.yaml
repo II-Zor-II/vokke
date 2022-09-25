@@ -19,6 +19,7 @@ services:
       XDEBUG_CONFIG: '${VOKKE_XDEBUG_CONFIG:-client_host=host.docker.internal}'
     volumes:
       - '.:/var/www/html'
+      - './docker/mysql:/docker-entrypoint-initdb.d'
     networks:
       - vokke
     depends_on:
