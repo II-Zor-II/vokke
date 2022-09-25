@@ -31,7 +31,8 @@
                 </div>
                 <div class="mt-5 md:col-span-2 md:mt-0">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Add Kangaroo</h3>
+                        <h3 id="add-kangaroo-header" class="text-lg font-medium leading-6 text-gray-900">Add Kangaroo</h3>
+                        <h3 id="update-kangaroo-header" class="hidden text-lg font-medium leading-6 text-gray-900">Update Kangaroo</h3>
                     </div>
                     <form action="#" method="POST" id="kangaroo-form">
                         <div class="overflow-hidden shadow sm:rounded-md bg-info rounded mb-3">

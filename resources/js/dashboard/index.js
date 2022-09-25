@@ -4,7 +4,7 @@ $(() => {
     );
 
     let selectedKangarooId = 0;
-
+    let selectionChangedRaised = false;
     axios.get('/api/user').then(function (response) {
         console.log(response.data.data);
         $('#user-kangaroo-grid').dxDataGrid({
@@ -13,22 +13,13 @@ $(() => {
             },
             dataSource: response.data.data,
             keyExpr: 'id',
-            columns: [
-                'name',
-                'nickname',
-                {
-                    dataField: 'birth_date',
-                    caption: 'birthday'
-                },
-                'color',
-                'friendliness',
-                'gender',
-                'height',
-                'weight'
-            ],
+            columns: ['name', 'nickname', {
+                dataField: 'birth_date', caption: 'birthday'
+            }, 'color', 'friendliness', 'gender', 'height', 'weight'],
             showBorders: true,
             onSelectionChanged(selectedItems) {
                 const data = selectedItems.selectedRowsData[0];
+                selectionChangedRaised = true;
                 if (data) {
                     selectedKangarooId = data.id;
                     $('#name').val(data.name);
@@ -37,10 +28,31 @@ $(() => {
                     $('#friendliness').val(data.friendliness);
                     $('#weight').val(data.weight);
                     $('#height').val(data.height);
-                    $('#birthday').val((new Date(data.birth_date)).toISOString().substring(0,10))
+                    $('#birthday').val((new Date(data.birth_date)).toISOString().substring(0, 10))
                     $('#update-kangaroo-button').show();
                     $('#add-kangaroo-button').hide();
+                    $('#add-kangaroo-header').hide();
+                    $('#update-kangaroo-header').show();
                 }
+            },
+            onRowClick(e) {
+                if (!selectionChangedRaised) {
+                    var dataGrid = e.component;
+                    var keys = dataGrid.getSelectedRowKeys();
+                    dataGrid.deselectRows(keys);
+                    $('#name').val('');
+                    $('#nickname').val('');
+                    $('#gender').val('');
+                    $('#friendliness').val('');
+                    $('#weight').val('');
+                    $('#height').val('data.height');
+                    $('#birthday').val('')
+                    $('#update-kangaroo-button').hide();
+                    $('#add-kangaroo-button').show();
+                    $('#add-kangaroo-header').show();
+                    $('#update-kangaroo-header').hide();
+                }
+                selectionChangedRaised = false;
             }
         });
     });
