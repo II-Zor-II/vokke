@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\StoreKangaroo;
 use App\Models\Kangaroo;
 use App\Http\Resources\Kangaroo as KangarooResource;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -16,7 +17,7 @@ class KangarooController extends ApiController
         return KangarooResource::collection($kangaroos);
     }
 
-    public function store(Request $request)
+    public function store(StoreKangaroo $request)
     {
         $kangaroo = Kangaroo::create([
             'user_id'   => $request->user()->id,

@@ -19,7 +19,8 @@ class CreateKangaroosTable extends Migration
             $table->unsignedBigInteger('user_id'); // foreign key for owner
             $table->foreign('user_id')->references('id')
                 ->on('users');
-            $table->string('name', 255);
+            $table->string('name', 255)
+                ->unique();
             $table->integer('weight'); // grams
             $table->integer('height'); // millimeters
             $table->string('nickname', 255);
