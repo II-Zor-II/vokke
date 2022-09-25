@@ -14,7 +14,13 @@
     </div>
     <div class="row justify-content-center">
         <div class="mt-10 sm:mt-0">
-            <div class="grid">
+            <div class="grid grid-cols-3">
+                <div>
+                    <div class="errors container p-5 mr-2 mt-5 hidden">
+                        <ul id="errors-left" class="p-4 bg-red-100 border border-red-400 text-red-700 list-disc">
+                        </ul>
+                    </div>
+                </div>
                 <div class="mt-5 md:col-span-2 md:mt-0">
                     <div class="px-4 sm:px-0">
                         <h3 class="text-lg font-medium leading-6 text-gray-900">Add Kangaroo</h3>
@@ -70,6 +76,10 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="errors container p-5 mr-2 mt-5 hidden">
+                    <ul id="errors-right" class="p-4 bg-red-100 border border-red-400 text-red-700 list-disc">
+                    </ul>
                 </div>
             </div>
         </div>

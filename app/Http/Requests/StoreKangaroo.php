@@ -21,8 +21,8 @@ class StoreKangaroo extends FormRequest
             'color' =>'max:10',
             'gender' =>'in:male,female',
             'friendliness' => 'in:friendly,not friendly',
-            'weight' =>'',
-            'height' =>'',
+            'weight' =>'numeric|required|gt:0',
+            'height' =>'numeric|required|gt:0',
         ];
     }
 }

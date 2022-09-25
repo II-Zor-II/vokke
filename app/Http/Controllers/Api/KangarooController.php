@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\StoreKangaroo;
+use App\Http\Requests\UpdateKangaroo;
 use App\Models\Kangaroo;
 use App\Http\Resources\Kangaroo as KangarooResource;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -33,7 +34,7 @@ class KangarooController extends ApiController
         return new KangarooResource($kangaroo);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateKangaroo $request, $id)
     {
         $kangaroo = Kangaroo::find($id);
 
