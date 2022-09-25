@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class KangarooController extends ApiController
 {
-    public function index() : JsonResource
+    public function index(): JsonResource
     {
         $kangaroos = Kangaroo::all();
         $kangaroos->load('user');
@@ -20,15 +20,15 @@ class KangarooController extends ApiController
     public function store(StoreKangaroo $request)
     {
         $kangaroo = Kangaroo::create([
-            'user_id'   => $request->user()->id,
+            'user_id' => $request->user()->id,
             'birth_date' => $request->birth_date,
             'name' => $request->name,
             'nickname' => $request->nickname,
             'color' => $request->color,
             'gender' => $request->gender,
             'friendliness' => $request->friendliness,
-            'weight' => (float) $request->weight,
-            'height' => (float) $request->height
+            'weight' => (float)$request->weight,
+            'height' => (float)$request->height
         ]);
         return new KangarooResource($kangaroo);
     }
@@ -38,14 +38,14 @@ class KangarooController extends ApiController
         $kangaroo = Kangaroo::find($id);
 
         $save = $kangaroo->update([
-            'birth_date' => $request->birth_date,
-            'name' => $request->name,
-            'nickname' => $request->nickname,
-            'color' => $request->color,
-            'gender' => $request->gender,
-            'friendliness' => $request->friendliness,
-            'weight' => (float) $request->weight,
-            'height' => (float) $request->height
+            'birth_date' => $request->input('birth_date', $kangaroo->birth_date),
+            'name' => $request->input('name', $kangaroo->name),
+            'nickname' => $request->input('nickname', $kangaroo->nickname),
+            'color' => $request->input('color', $kangaroo->color),
+            'gender' => $request->input('gender', $kangaroo->gender),
+            'friendliness' => $request->input('friendliness', $kangaroo->friendliness),
+            'weight' => (float)$request->input('weight', $kangaroo->weight),
+            'height' => (float)$request->input('height', $kangaroo->height)
         ]);
 
         if ($save) {
