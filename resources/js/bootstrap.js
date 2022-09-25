@@ -9,9 +9,11 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-
+    require('./_lib/dx.all.debug')
     require('bootstrap');
-} catch (e) {}
+    require('tw-elements');
+} catch (e) {
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -22,6 +24,10 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+if (window.Laravel != undefined) {
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + Laravel.apiToken;
+}
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
