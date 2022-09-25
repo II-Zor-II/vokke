@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Api', 'middleware' => ['auth:api']],function() {
     Route::resource('kangaroo', 'KangarooController');
+    Route::resource('user', 'UserController');
 });
 
 Route::resource('kangaroo', 'Api\KangarooController', ['only' => 'index']);

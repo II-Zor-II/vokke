@@ -5,7 +5,7 @@ $(() => {
 
     let selectedKangarooId = 0;
 
-    axios.get('/api/kangaroo').then(function (response) {
+    axios.get('/api/user').then(function (response) {
         console.log(response.data.data);
         $('#user-kangaroo-grid').dxDataGrid({
             selection: {
