@@ -8,8 +8,9 @@ docker-compose up
 
 docker-compose exec vokke.test composer install
 
-docker-compose exec vokke.test php artisan migrate:fresh --seed 
+docker-compose restart
 
+docker-compose exec vokke.test php artisan migrate:fresh --seed 
 ```
 
 default user for 
@@ -18,7 +19,6 @@ http://vokke.test/login
 u: user@gmail.com
 p: password
 ```
-
 ## Notes:
 
 Not a production ready project.
